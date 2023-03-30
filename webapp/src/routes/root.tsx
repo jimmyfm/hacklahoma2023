@@ -21,6 +21,7 @@ export default function Root() {
             Learn React
           </a>
           <Link to={`wall`}>Wall</Link>
+          <Link to={`chat`}>Chat</Link>
         </header>
       </div>
     </>

@@ -3,52 +3,62 @@
 /**
  * Module dependencies.
  */
-var app = require('../app');
-var fs = require('fs');
-var http = require('http');
-var https = require('https');
+var { app, wss } = require("../app");
+var fs = require("fs");
+var http = require("http");
+var https = require("https");
 
 /**
  * Create HTTP/S server.
  */
-var privateKey  = fs.readFileSync('./bin/server.key', 'utf8');
-var certificate = fs.readFileSync('./bin/server.crt', 'utf8');
+var privateKey = fs.readFileSync("./bin/server.key", "utf8");
+var certificate = fs.readFileSync("./bin/server.crt", "utf8");
 
 var httpServer = http.createServer(app);
 
-var credentials = {key: privateKey, cert: certificate};
+var credentials = { key: privateKey, cert: certificate };
 var httpsServer = https.createServer(credentials, app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 httpServer.listen(80);
-httpServer.on('error', onError);
+httpServer.on("error", onError);
 
 httpsServer.listen(443);
-httpsServer.on('error', onError);
+httpsServer.on("error", onError);
 
+[httpServer, httpsServer].forEach((s) =>
+  s.on("upgrade", function upgrade(request, socket, head) {
+    // If you want more ws endpoints, add them here
+    if (request.url === "/ws") {
+      wss.handleUpgrade(request, socket, head, function done(ws) {
+        wss.emit("connection", ws, request);
+      });
+    } else {
+      socket.destroy();
+    }
+  })
+);
 
 /**
  * Event listener for HTTP server "error" event.
  */
 function onError(error) {
-  if (error.syscall !== 'listen') {
+  if (error.syscall !== "listen") {
     throw error;
   }
 
-  var bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+  var bind = typeof port === "string" ? "Pipe " + port : "Port " + port;
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
+    case "EACCES":
+      console.error(bind + " requires elevated privileges");
       process.exit(1);
       break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+    case "EADDRINUSE":
+      console.error(bind + " is already in use");
       process.exit(1);
       break;
     default:

@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
 import Wall from "./routes/wall";
 import ErrorPage from "./error-page";
+import Chat from "./routes/chat";
 
 // More info at: https://reactrouter.com/en/main/start/tutorial
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "wall",
     element: <Wall />,
+  },
+  {
+    path: "chat",
+    element: <Chat />,
   },
 ]);
 
