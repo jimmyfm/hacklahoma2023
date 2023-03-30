@@ -1,3 +1,6 @@
+# React build output
+/server/public/
+
 # Logs
 logs
 *.log
