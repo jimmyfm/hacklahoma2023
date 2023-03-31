@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+<title>Hacklahoma 2023 - Webapp from scratch</title>
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reset.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/black.min.css" id="theme">
+
+<!-- Theme used for syntax highlighting of code -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/monokai.min.css">
+</head>
+
+<body>
+
+<div class="reveal">
+
+	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides">
+		<section>
+			<h1 class="r-fit-text">Webapp in an hour or less*</h1>
+			<small class="fragment">*if you type fast enough</small>
+		</section>
+
+		<section>
+			<h1 class="r-fit-text">Why a webapp?</h1>
+			<ul>
+				<li class="fragment">Browser as a platform</li>
+				<li class="fragment">Write once, run anywhere</li>
+				<li class="fragment">97% of native apps could be webapps</li>
+			</ul>
+		</section>
+
+		<section>
+			<h1 class="r-fit-text">Bits and pieces</h1>
+			<ul>
+				<li class="fragment">React Webapp</li>
+				<li class="fragment">NextJS Backend <span class="fragment">+ Websockets</span></li>
+				<li class="fragment">MongoDB Storage</li>
+			</ul>
+		</section>
+
+		<section>
+			<h1 class="r-fit-text">Hosting</h1>
+			<ul>
+				<li class="fragment">AWS is BAD <span class="fragment">(just like Chrome)</span></li>
+				<li class="fragment">KISS approach</li>
+				<li class="fragment">Portability</li>
+				<li class="fragment">Cost</li>
+			</ul>
+		</section>
+
+		<section>
+			<h1 class="r-fit-text">Unsolicited Advice</h1>
+			<ul>
+				<li class="fragment">Make it work, don't worry about efficiency or quality</li>
+				<li class="fragment">Look at the prize categories</li>
+			</ul>
+		</section>
+		
+		<section>
+			<h1 class="r-fit-text">Code</h1>
+			<ul>
+				<li class="fragment">https://github.com/jimmyfm/hacklahoma2023</li>
+			</ul>
+		</section>	
+	</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/zoom/zoom.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/notes/notes.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/search/search.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/markdown/markdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/highlight/highlight.min.js"></script>
+<script>
+
+	// Also available as an ES module, see:
+	// https://revealjs.com/initialization/
+	Reveal.initialize({
+		controls: true,
+		progress: true,
+		center: true,
+		hash: true,
+
+		// Learn about plugins: https://revealjs.com/plugins/
+		plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+	});
+
+</script>
+
+</body>
+</html>
