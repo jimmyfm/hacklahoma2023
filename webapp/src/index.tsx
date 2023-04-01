@@ -2,14 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/root";
 import Wall from "./routes/wall";
 import ErrorPage from "./error-page";
 import Chat from "./routes/chat";
 
 // More info at: https://reactrouter.com/en/main/start/tutorial
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Root />,
@@ -30,7 +30,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router}  />
   </React.StrictMode>
 );
 
