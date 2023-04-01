@@ -36,7 +36,7 @@ export default function Contact() {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
-        <input type="button" value="Write on the wall" />
+        <input type="submit" value="Write on the wall" />
       </form>
       <table>
         {data.map((e: any) => (
