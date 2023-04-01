@@ -7,7 +7,10 @@ export default function Chat() {
 
   useEffect(() => {
     let ws = new WebSocket(
-      window.location.protocol.replace("http", "ws") + "//localhost/ws"
+      window.location.protocol.replace("http", "ws") +
+        "//" +
+        window.location.hostname +
+        "/ws"
     );
     setWs(ws);
 
